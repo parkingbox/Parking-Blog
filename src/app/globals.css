@@ -16,12 +16,13 @@
   }
 }
 
+@font-face {
+  font-family: "Jalnan";
+  font-weight: 200;
+  src: url("/fonts/Jalnan.ttf") format("truetype");
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  height: 100vh;
+  font-family: -apple-system, Jalnan, sans-serif;
 }
