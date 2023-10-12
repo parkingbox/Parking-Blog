@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import DarkModeBtn from "./DarkModeBtn";
 
 function Header() {
   return (
@@ -8,9 +9,10 @@ function Header() {
         <h1 className="text-3xl font-bold">
           <Link href="/">ParkingBox</Link>
         </h1>
-        <ul className="flex items-center gap-3 md:gap-4">
+        <ul className="flex items-center gap-3 ">
           <Link href="/post">post</Link>
           <Link href="/about">about</Link>
+          <DarkModeBtn />
         </ul>
       </div>
     </nav>
