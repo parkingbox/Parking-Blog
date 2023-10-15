@@ -7,6 +7,7 @@ function DarkModeBtn() {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [isDark, setIsDark] = useState(false);
+  console.log(systemTheme);
 
   useEffect(() => {
     setIsDark(true);
