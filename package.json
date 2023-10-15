@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "cl-dev": "contentlayer dev",
+    "dev": "contentlayer dev & next dev",
+    "build": "contentlayer build && next build",
     "start": "next start",
     "lint": "next lint"
   },
+  
   "dependencies": {
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
