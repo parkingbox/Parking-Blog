@@ -12,7 +12,7 @@ function DarkModeBtn() {
     setIsDark(true);
   }, []);
   return (
-    <>
+    <div className="fixed top-10 right-10">
       {isDark && currentTheme === "dark" ? (
         <button
           type="button"
@@ -32,7 +32,7 @@ function DarkModeBtn() {
           Dark
         </button>
       )}
-    </>
+    </div>
   );
 }
 

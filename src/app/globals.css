@@ -18,13 +18,20 @@
 
 @font-face {
   font-family: "Jalnan";
-  font-weight: normal;
+  font-weight: 200;
   src: url("/fonts/Jalnan.ttf") format("truetype");
 }
 
 body {
-  height: 100vh;
   margin: 0;
-  font-family: Jalnan;
+  font-family: -apple-system, Jalnan, sans-serif;
   overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.text-gradient {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
