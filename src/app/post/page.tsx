@@ -31,7 +31,7 @@ function PostPage() {
 
   return (
     <main className="mx-auto max-w-5xl">
-      <h1 className="my-8 text-center text-3xl font-bold">hello</h1>
+      <h1 className="my-8 text-center text-3xl font-bold">나의 서재</h1>
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}

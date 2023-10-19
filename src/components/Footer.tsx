@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 
@@ -6,7 +8,7 @@ function Footer() {
     <div className="flex flex-col items-center justify-center w-full h-20 ">
       <div className="flex gap-5 mb-2">
         <div className="cursor-pointer">
-          <a href="https://github.com/parkingbox" target="blank">
+          <a href="https://github.com/parkingbox" target="_blank">
             <AiFillGithub size={25} />
           </a>
         </div>
