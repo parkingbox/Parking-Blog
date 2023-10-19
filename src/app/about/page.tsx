@@ -63,7 +63,7 @@ function About() {
         <section className="mb-12">
           <h4 className="mb-6 text-2xl font-semibold">Education</h4>
           <ul className="flex list-disc flex-col gap-1 px-4">
-            <li>항해99 13기 프론트엔드 과정(2022.09.13 - 2023.04.14)</li>
+            <li>항해99 13기 프론트엔드 과정(2023.02 - 2023.06)</li>
           </ul>
         </section>
         <section className="mb-12">
