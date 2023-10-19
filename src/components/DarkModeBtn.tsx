@@ -2,6 +2,7 @@
 import { useTheme } from "next-themes";
 
 import React, { useEffect, useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 function DarkModeBtn() {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -12,24 +13,24 @@ function DarkModeBtn() {
     setIsDark(true);
   }, []);
   return (
-    <div className="fixed top-10 right-10">
+    <div>
       {isDark && currentTheme === "dark" ? (
         <button
           type="button"
-          className="rounded-lg bg-[#F7ECDC] px-2 text-black hover:bg-[#F7ECDC]"
+          className="rounded-full bg-[#F7ECDC] p-2 text-black hover:bg-[#F7ECDC]"
           title="Toggle dark mode"
           onClick={() => setTheme("light")}
         >
-          Light
+          <MdLightMode />
         </button>
       ) : (
         <button
           type="button"
-          className="rounded-lg bg-[#F7ECDC] px-2 text-black  hover:[#F7ECDC]"
+          className="rounded-full bg-[#F7ECDC] p-2 text-black  hover:[#F7ECDC]"
           title="Toggle dark mode"
           onClick={() => setTheme("dark")}
         >
-          Dark
+          <MdDarkMode />
         </button>
       )}
     </div>

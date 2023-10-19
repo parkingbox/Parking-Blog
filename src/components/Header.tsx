@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import DarkModeBtn from "./DarkModeBtn";
 
 function Header() {
   return (
@@ -11,6 +12,8 @@ function Header() {
         <ul className="flex items-center gap-3 ">
           <Link href="/post">post</Link>
           <Link href="/about">about</Link>
+          <DarkModeBtn />
+
         </ul>
       </div>
     </nav>
