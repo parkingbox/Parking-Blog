@@ -16,10 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="dark:bg-neutral-800 bg-neutral-100">
         <Providers>
           <Header />
-          <main className="h-screen max-h-[1080px] mx-auto mt-14 w-full max-w-3xl px-4">
+          <main className="h-screen max-h-[1080px] mx-auto mt-14 w-full max-w-3xl px-4  ">
             {children}
           </main>
           <Footer />

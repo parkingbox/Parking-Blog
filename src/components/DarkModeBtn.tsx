@@ -12,8 +12,9 @@ function DarkModeBtn() {
   useEffect(() => {
     setIsDark(true);
   }, []);
+
   return (
-    <div>
+    <div className={`mr-3 animate-pulse`}>
       {isDark && currentTheme === "dark" ? (
         <button
           type="button"
