@@ -1,6 +1,7 @@
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
+import Utterences from "@/src/components/Utterences";
 
 function PostCard(post: Post) {
   return (
@@ -27,7 +28,6 @@ function PostPage() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
-  console.log(posts);
 
   return (
     <main className="mx-auto max-w-5xl">

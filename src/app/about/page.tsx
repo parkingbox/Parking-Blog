@@ -1,3 +1,4 @@
+import Utterences from "@/src/components/Utterences";
 import React from "react";
 
 function About() {
@@ -77,6 +78,7 @@ function About() {
           </ul>
         </section>
       </>
+      <Utterences />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Profile from "../../public/Profile.webp";
+
 export default function Home() {
   return (
     <>
