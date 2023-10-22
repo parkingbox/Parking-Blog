@@ -14,7 +14,7 @@ function DarkModeBtn() {
   }, []);
 
   return (
-    <div className={`mr-3 animate-pulse`}>
+    <div className={`mr-3 animate-pulse fixed bottom-10 right-10`}>
       {isDark && currentTheme === "dark" ? (
         <button
           type="button"

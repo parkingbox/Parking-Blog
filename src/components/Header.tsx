@@ -9,13 +9,14 @@ function Header() {
         <h1 className="text-3xl font-bold">
           <Link href="/">ParkingBox</Link>
         </h1>
-        <ul className="flex items-center gap-3 ">
-          <Link href="/post">post</Link>
+        <div>
+          <Link className="mr-10" href="/post">
+            post
+          </Link>
           <Link href="/about">about</Link>
-          <DarkModeBtn />
-
-        </ul>
+        </div>
       </div>
+      <DarkModeBtn />
     </nav>
   );
 }
