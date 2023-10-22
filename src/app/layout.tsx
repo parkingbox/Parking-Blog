@@ -4,9 +4,15 @@ import Providers from "../components/Providers";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-export const metadata: Metadata = {
-  title: "ParkSeungwoo",
-  description: "parkseungwoo nextjs blog",
+export const metadata = {
+  title: {
+    default: "Parkseungwoo blog",
+    template: "parkseungwoo blog | %s",
+  },
+  description: "FrontEnd Developer Parkseungwoo nextjs blog",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

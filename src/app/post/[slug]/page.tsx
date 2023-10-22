@@ -3,10 +3,36 @@ import { notFound } from "next/navigation";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import Utterences from "@/src/components/Utterences";
+import { Metadata } from "next";
 
 const mdxComponents: MDXComponents = {
   a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> {
+  const post = allPosts.find((post) => post.url === params.slug);
+  if (!post) {
+    return;
+  }
+  const { title, date: publishedTime, description, url } = post;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: { absolute: title },
+      description,
+      type: "article",
+      publishedTime,
+      url: `https://parking-blog-three.vercel.app/post/${url}`,
+    },
+  };
+}
 
 export default function Page({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
@@ -19,9 +45,11 @@ export default function Page({ params }: { params: { slug: string } }) {
     <div>
       <div className="mb-6">
         <h1 className="mb-1 text-3xl font-semibold">{post.title}</h1>
-        <h4 className="font-light text-gray-700 dark:text-gray-400"></h4>
       </div>
-      <MDXContent components={mdxComponents} />
+      <div className="h-full">
+        <MDXContent components={mdxComponents} />
+      </div>
+      {/* <Utterences /> */}
     </div>
   );
 }

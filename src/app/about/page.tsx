@@ -1,10 +1,15 @@
 import Utterences from "@/src/components/Utterences";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "About Me",
+  description: "주니어 프론트엔드 개발자 박승우 소개",
+};
 
 function About() {
   return (
     <div>
-      {" "}
       <>
         <h1 className="mb-6 text-3xl font-bold">About Me</h1>
         <section className="mb-12">

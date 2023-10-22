@@ -1,6 +1,12 @@
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Post",
+  description: "회고 및 개인공부에 대한 블로그 글목록",
+};
 
 function PostCard(post: Post) {
   return (
