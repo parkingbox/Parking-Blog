@@ -111,7 +111,7 @@ export async function generateMetadata({
 
 ### 출처
 
-- https://academy.dream-coding.com/courses> (드림코딩 next 강의)
+- https://academy.dream-coding.com/courses (드림코딩 next 강의)
 - https://seo.tbwakorea.com/blog/seo-guide-2022/#part5
 - https://www.ascentkorea.com/seo-complete-guide-2022
 - https://nextjs.org/learn/seo/introduction-to-seo
