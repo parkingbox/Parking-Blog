@@ -48,9 +48,9 @@ export default function Page({ params }: { params: { slug: string } }) {
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <div className="prose h-full">
+    <div className=" h-full">
       <div className="mb-6">
-        <h1 className="mb-1 text-3xl font-semibold prose">{post.title}</h1>
+        <h1 className="mb-1 text-3xl font-semibold ">{post.title}</h1>
       </div>
       <div className="h-full">
         <article className="prose dark:prose-invert prose-h1:text-2xl prose-a:break-all break-keep">
