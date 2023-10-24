@@ -48,14 +48,14 @@ export default function Page({ params }: { params: { slug: string } }) {
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <div>
+    <div className="prose">
       <div className="mb-6">
         <h1 className="mb-1 text-3xl font-semibold">{post.title}</h1>
       </div>
       <div className="h-full">
         <MDXContent components={mdxComponents} />
       </div>
-      {/* <Utterences /> */}
+      <Utterences />
     </div>
   );
 }
