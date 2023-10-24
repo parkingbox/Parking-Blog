@@ -53,7 +53,9 @@ export default function Page({ params }: { params: { slug: string } }) {
         <h1 className="mb-1 text-3xl font-semibold prose">{post.title}</h1>
       </div>
       <div className="h-full">
-        <MDXContent components={mdxComponents} />
+        <article className="prose dark:prose-invert prose-h1:text-2xl prose-a:break-all break-keep">
+          <MDXContent components={mdxComponents} />
+        </article>
       </div>
     </div>
   );

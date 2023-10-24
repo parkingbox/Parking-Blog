@@ -42,7 +42,7 @@ Next를 사용하면,
 
 - 정적으로 메타데이터를 생성하는 방법으로, 페이지 내부에서 metadata를 export 하여 메타데이터 객체를 생성합니다. <br/>이때 template 속성을 이용하면 방문하는 페이지 별로 타이틀이 바뀌게 됩니다.
 
-```javascript
+```JavaScript
 layout.tsx;
 
 export const metadata = {
@@ -62,9 +62,8 @@ export const metadata = {
 - 메타데이터를 generateMetadata 함수를 사용하여 fetch하여 동적으로 생성합니다.
 - generateStaticParams 함수를 사용해 개별적으로 생성한 뒤 <br/>find 메서드를 사용해 slug와 맞는 포스트를 찾습니다. 찾아진 포스트에서 데이터를 추출하여 메타데이터에 맞는 형식으로 반환해 줍니다.
 
-```javascript
-[slug] / page.tsx;
-
+```JavaScript
+[slug]/page.tsx;
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.url,
@@ -74,7 +73,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string },
+  params: { slug: string };
 }): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post.url === params.slug);
   if (!post) {
@@ -112,7 +111,7 @@ export async function generateMetadata({
 
 ### 출처
 
-- <https://academy.dream-coding.com/courses> (드림코딩 next 강의)
-- <https://seo.tbwakorea.com/blog/seo-guide-2022/#part5>
-- <https://www.ascentkorea.com/seo-complete-guide-2022>
-- <https://nextjs.org/learn/seo/introduction-to-seo>
+- https://academy.dream-coding.com/courses> (드림코딩 next 강의)
+- https://seo.tbwakorea.com/blog/seo-guide-2022/#part5
+- https://www.ascentkorea.com/seo-complete-guide-2022
+- https://nextjs.org/learn/seo/introduction-to-seo
