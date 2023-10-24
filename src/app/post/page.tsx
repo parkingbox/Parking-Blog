@@ -32,7 +32,7 @@ function PostPage() {
   );
 
   return (
-    <main className="mx-auto max-w-5xl">
+    <main className="mx-auto max-w-5xl h-screen">
       <h1 className="my-8 text-center text-3xl font-bold">공부함</h1>
       {posts.map((post, idx) => (
         <>

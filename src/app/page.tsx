@@ -4,7 +4,7 @@ import Profile from "../../public/Profile.webp";
 export default function Home() {
   return (
     <>
-      <div className="flex mx-auto max-w-xl py-8">
+      <div className="flex mx-auto max-w-xl py-8 ">
         <Image
           src={Profile}
           quality={100}
