@@ -10,6 +10,12 @@ const mdxComponents: MDXComponents = {
   a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
 };
 
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post.url,
+  }));
+}
+
 export async function generateMetadata({
   params,
 }: {
