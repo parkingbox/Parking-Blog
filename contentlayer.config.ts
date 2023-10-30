@@ -1,4 +1,10 @@
 import { defineDocumentType, makeSource } from "@contentlayer/source-files";
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
+const rehypeOptions = {
+  theme: "slack-dark",
+  keepBackground: true,
+};
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -20,4 +26,8 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "./src/posts",
   documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
+  },
 });
