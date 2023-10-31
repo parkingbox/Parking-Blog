@@ -23,6 +23,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="-LMg4ZQKAzZHeUaiWczNHefnUw87JvEIK143zU_X3us"
+        />
+      </head>
       <body className="dark:bg-neutral-800 bg-neutral-100">
         <Providers>
           <Header />
@@ -31,7 +37,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </Providers>
-        <AnalyticsWrap/>
+        <AnalyticsWrap />
       </body>
     </html>
   );
