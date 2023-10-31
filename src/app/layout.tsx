@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Providers from "../components/Providers";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { AnalyticsWrap } from "../components/Analytics";
 
 export const metadata = {
   title: {
@@ -30,6 +31,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </Providers>
+        <AnalyticsWrap/>
       </body>
     </html>
   );
