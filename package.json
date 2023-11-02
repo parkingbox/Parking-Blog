@@ -5,7 +5,7 @@
   "scripts": {
     "cl-dev": "contentlayer dev",
     "dev": "contentlayer dev & next dev",
-    "build": "contentlayer build && next build && next-sitemap && next export",
+    "build": "contentlayer build && next build && next-sitemap ",
     "start": "next start",
     "lint": "next lint"
   },
