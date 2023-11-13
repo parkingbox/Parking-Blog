@@ -3,3 +3,109 @@ title: "SEO에 대해 알아보자 (2)"
 date: "2023-10-31"
 description: Next에서 SEO 적용해보기(2)
 ---
+
+## sitemap robots.txt
+
+![alt](https://www.twinword.co.kr/wp-content/uploads/sites/6/2017/03/seo-1.png)
+
+Next가 제공하는 API를 사용해 SEO(검색 엔진 최적화)에 필요한 sitemap과 robots를 만드는 방법에 대해 공부해보겠습니다.
+
+## robots.txt
+
+robots.txt 란?
+
+- 검색의 크롤링 로봇이 웹에 접근할 때 로봇이 지켜야하는 규칙과 sitemap.xml 파일의 위치를 알려주는 역할을 하는 파일
+
+1. 정적 robots.txt
+
+```tsx
+User-Agent: *
+Allow: /
+Host: https://parking-blog-three.vercel.app
+Sitemap: https://parking-blog-three.vercel.app/sitemap.xml
+```
+
+2. 동적 robots.txt
+
+robots를 생성하기 위해 robots.ts 파일을 추가해 Robots 객체를 반환하도록 하는 함수를 생성합니다.
+
+```tsx
+import type { MetadataRoute } from "next";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: "https://parking-blog-three.vercel.app/sitemap.xml",
+    host: "https://parking-blog-three.vercel.app/",
+  };
+}
+```
+
+Next에서 제공하는 API를 이용한 sitemap
+
+sitemap이란?
+
+- 사이트에 있는 페이지, 동영상 및 기타 파일과 그 관계에 관한 정보를 제공하는 파일
+
+1. 정적 sitemap.xml
+
+```tsx
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://parking-blog-three.vercel.app/</loc>
+		<lastmod>2023-09-12</lastmod>
+	</url>
+	<url>
+		<loc>https://parking-blog-three.vercel.app/post</loc>
+		<lastmod>2023-09-12</lastmod>
+	</url>
+	<url>
+		<loc>https://parking-blog-three.vercel.app/about</loc>
+		<lastmod>2023-09-12</lastmod>
+	</url>
+  <!-- ... -->
+</urlset>
+```
+
+이런 식으로 정적으로 sitemap을 생성할 수 있지만, 페이지가 생성 될때마다 직접 추가를 해줘야하기 때문에 번거러움이 있습니다.
+그래서 next에서 제공하는 API를 활용하여 아래와 같이 동적으로 sitemap을 생성할 수 있습니다.
+
+2. 동적 sitemap.xml
+
+```tsx
+import { allPosts } from "contentlayer/generated";
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const posts = allPosts.map((post) => ({
+    url: `https://www.yujiseok.blog/post/${post._raw}`,
+    lastModified: post.date,
+  }));
+
+  const routes = ["", "/post", "/about"].map((route) => ({
+    url: `https://parking-blog-three.vercel.app/${route}`,
+    lastModified: new Date().toISOString().split("T")[0],
+  }));
+
+  return [...routes, ...posts];
+}
+```
+
+contentlayer를 이용하여 mdx 파일을 불러오기 때문에 전체 게시글을 불러온 후 sitemap의 형식과 Sitemap 타입에 맞는 배열을 만들어 줍니다.
+
+## 결론
+
+이처럼 next에서 제공하는 API를 활용하여 간단하게 SEO에 필요한 파일들을 생성해 보았습니다.
+react만 쓰다가 next를 공부하며 사용해보니 정말 다양한 기능들이 많다는 것을 다시 한번 느낄 수 있었습니다.
+아직 부족하긴 하지만 하나씩 공부해 나가는 재미가 있는 것 같습니다.
+
+<hr />
+
+### 출처
+
+- https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=ko
+- https://nextjs.org/docs/app/api-reference/file-conventions/metadata
