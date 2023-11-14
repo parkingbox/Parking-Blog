@@ -4,7 +4,7 @@ import Profile from "../../public/Profile.webp";
 export default function Home() {
   return (
     <>
-      <div className="flex mx-auto max-w-xl py-8 ">
+      <div className="sm:flex flex-col mx-auto max-w-xl py-8 pl-8 items-center">
         <Image
           src={Profile}
           quality={100}
@@ -18,7 +18,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="py-8">
+      <div className="py-8 pl-8">
         <p className="mb-4">
           저는 FrontEnd를 깊이 있게 다져가기 위해 양질의 글을 쓰고자 노력합니다.
         </p>
