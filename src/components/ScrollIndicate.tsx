@@ -25,7 +25,7 @@ export default function ScrollIndicate() {
         .progressBar {
           position: fixed;
           z-index: 50;
-          top: 40px;
+          top: 0px;
           left: 0px;
           height: 3px;
           border-radius: 0px 2px 0px 0px;

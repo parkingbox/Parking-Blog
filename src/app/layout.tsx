@@ -23,11 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      
       <body className="dark:bg-neutral-800 bg-neutral-100">
         <Providers>
           <Header />
-          <main className="h-full mx-auto mt-14 w-full max-w-3xl px-4  ">
+          <main className="h-full mt-28 mx-auto w-full max-w-3xl px-4">
             {children}
           </main>
           <Footer />
