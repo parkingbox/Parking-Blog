@@ -28,30 +28,6 @@ function About() {
               코드 유지보수와 재사용성에 대해 끊임없이 고민합니다.
             </p>
           </div>
-
-          <ul className="flex gap-4">
-            <li>
-              <a
-                href="https://github.com/parkingbox"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="rounded-md bg-[#F7ECDC] p-2 text-black  hover:bg-[#f7dfba]"
-              >
-                Github
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="https://www.notion.so/b68e48eb41144696b82b94b8a546aeb8"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="rounded-md bg-[#F7ECDC] p-2 text-black  hover:bg-[#f7dfba]"
-              >
-                Resume
-              </a>
-            </li>
-          </ul>
         </section>
 
         <section className="mb-12">
