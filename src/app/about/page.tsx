@@ -56,11 +56,17 @@ function About() {
 
         <section className="mb-12">
           <h4 className="mb-6 text-2xl font-semibold">Work Experience</h4>
-          <ul className="flex list-disc flex-col gap-1 px-4">
+          <ul className="flex list-disc flex-col gap-5 px-4">
             <li>
               <div>
-                <p>(주)에이아이노미스 (2023.08 - 2023.10)</p>
+                <p>(주)에이아이노미스 (2023.08 ~ 2023.12)</p>
                 <p> - Nomis QR 홈페이지 프론트엔드 개발</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p>(주)퓨쳐시스템 (2023.12 ~ )</p>
+                <p> 네트워크 장비 관리자 페이지 프론트엔드 개발</p>
               </div>
             </li>
           </ul>
