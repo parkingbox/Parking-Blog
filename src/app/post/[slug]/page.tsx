@@ -24,7 +24,7 @@ export async function generateMetadata({
   if (!post) {
     return;
   }
-  const { title, date: publishedTime, description, url } = post;
+  const { title, date: publishedTime, description, url, category } = post;
 
   return {
     title,
@@ -36,11 +36,13 @@ export async function generateMetadata({
       publishedTime,
       url: `https://parking-blog-three.vercel.app/post/${url}`,
     },
+    category,
   };
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+
 
   if (!post) notFound();
 

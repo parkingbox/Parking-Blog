@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 function PostCard(post: Post) {
+
   return (
     <div className="mb-8">
       <h2 className="mb-1 text-xl">
