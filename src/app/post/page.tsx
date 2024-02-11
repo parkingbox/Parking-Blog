@@ -5,6 +5,7 @@ import { allPosts, Post } from "contentlayer/generated";
 import Link from "next/link";
 import { Metadata } from "next";
 import { useSearchParams } from "next/navigation";
+import Category from "@/src/components/Category";
 
 const metadata: Metadata = {
   title: "Post",
@@ -17,7 +18,7 @@ function PostCard(post: Post) {
       <h2 className="mb-1 text-xl">
         <Link href={`post/${post._raw.flattenedPath}`}>{post.title}</Link>
       </h2>
-      <span className="mb- text-gray-800">
+      <span className="mb- text-gray-800 dark:text-gray-400">
         <Link href={`post/${post._raw.flattenedPath}`}>{post.description}</Link>
       </span>
       <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
@@ -44,13 +45,13 @@ function PostPage() {
 
   return (
     <div className="mx-auto max-w-5xl h-screen">
-      <h1 className=" text-center text-3xl font-bold">공부함</h1>
+      <h1 className="mb-5 text-center text-3xl font-bold">공부함</h1>
       <div className="flex gap-5">
         <div>
-          <Link href={`?`} className="flex items-center">
-            <div className="rounded-md bg-[#F7ECDC] p-2 text-black hover:bg-[#f7dfba] cursor-pointer text-black">
-              ALL
-            </div>
+          <Link href={`?`} className="flex items-center rounded-md  ">
+            <Category selected={isAll}>
+              <div className="cursor-pointer ">ALL</div>
+            </Category>
           </Link>
         </div>
         <div className="flex gap-5">
@@ -64,9 +65,14 @@ function PostPage() {
               <Link
                 key={i}
                 href={`?key=${post.category}`}
-                className="rounded-md bg-[#F7ECDC] p-2 text-black hover:bg-[#f7dfba]"
+                className="rounded-md"
               >
-                <div className="cursor-pointer text-black">{post.category}</div>
+                <Category
+                  className="cursor-pointer whitespace-nowrap"
+                  selected={post.category === keyParams}
+                >
+                  <div className="cursor-pointer">{post.category}</div>
+                </Category>
               </Link>
             ))}
         </div>
