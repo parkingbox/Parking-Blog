@@ -43,7 +43,7 @@ function PostPage() {
   });
 
   return (
-    <main className="mx-auto max-w-5xl h-screen">
+    <div className="mx-auto max-w-5xl h-screen">
       <h1 className=" text-center text-3xl font-bold">공부함</h1>
       <div className="flex gap-5">
         <div>
@@ -73,15 +73,15 @@ function PostPage() {
       </div>
 
       <div className="mt-8 space-y-16">
-        {filteredSnippetList.map((item) => {
+        {filteredSnippetList.map((item, i) => {
           return (
-            <div className="mt-4 grid grid-cols-2 gap-4">
+            <div key={i} className="mt-4 grid grid-cols-2 gap-4">
               <PostCard {...item} />
             </div>
           );
         })}
       </div>
-    </main>
+    </div>
   );
 }
 
