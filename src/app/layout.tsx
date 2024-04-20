@@ -4,6 +4,7 @@ import Providers from "../components/Providers";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { AnalyticsWrap } from "../components/Analytics";
+import DarkModeBtn from "../components/DarkModeBtn";
 
 export const metadata = {
   title: {
@@ -25,12 +26,14 @@ export default function RootLayout({
     <html lang="en">
       <body className="dark:bg-neutral-800 bg-neutral-100">
         <Providers>
-          <Header />
           <main className="h-full mt-28 mx-auto w-full max-w-3xl px-4">
+            <Header />
             {children}
+            <Footer />
           </main>
-          <Footer />
+          <DarkModeBtn />
         </Providers>
+
         <AnalyticsWrap />
       </body>
     </html>
