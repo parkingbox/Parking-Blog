@@ -46,9 +46,8 @@ function PostPage() {
   return (
     <div className="mx-auto max-w-5xl h-screen">
       <h1 className="mb-5 text-center text-3xl font-bold">공부함</h1>
-      
 
-      <div className="mt-8 space-y-16">
+      <div className="mt-8 space-y-16 transition-all duration-500">
         {filteredSnippetList.map((item, i) => {
           return (
             <div key={i} className="mt-4 grid grid-cols-2 gap-4">
