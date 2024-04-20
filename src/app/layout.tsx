@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Providers from "../components/Providers";
-import Header from "../components/Header";
+import Header from "../components/SideNav";
 import Footer from "../components/Footer";
 import { AnalyticsWrap } from "../components/Analytics";
 import DarkModeBtn from "../components/DarkModeBtn";
