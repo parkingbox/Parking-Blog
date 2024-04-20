@@ -62,7 +62,7 @@ function Header() {
               .map((post, i) => (
                 <Link
                   key={i}
-                  href={`?key=${post.category}`}
+                  href={`/?key=${post.category}`}
                   className="rounded-md"
                 >
                   <Category
