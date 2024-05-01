@@ -34,11 +34,11 @@ export default function ScrollIndicate() {
       `}</style>
       <style global jsx>{`
         body {
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
         body::-webkit-scrollbar {
-          display: none; /* Chrome, Safari, Opera*/
+          display: none;
         }
       `}</style>
     </div>

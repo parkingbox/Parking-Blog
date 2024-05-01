@@ -14,7 +14,8 @@ const metadata: Metadata = {
 
 function PostCard(post: Post) {
   return (
-    <div className="">
+    <div>
+      {/* <div>{post.category}</div> */}
       <h2 className="mb-1 text-xl">
         <Link href={`post/${post._raw.flattenedPath}`}>{post.title}</Link>
       </h2>
@@ -44,7 +45,7 @@ function PostPage() {
   });
 
   return (
-    <div className="mx-auto max-w-5xl h-screen">
+    <div className="ml-40 mx-auto max-w-5xl h-screen">
       <h1 className="mb-5 text-center text-3xl font-bold">공부함</h1>
 
       <div className="mt-8 space-y-16 transition-all duration-500">

@@ -1,10 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
 import DarkModeBtn from "./DarkModeBtn";
 import ScrollIndicate from "./ScrollIndicate";
-import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import SideNavIntro from "../app/_components/SideNavIntro";
 import SideList from "../app/_components/SideList";
 
