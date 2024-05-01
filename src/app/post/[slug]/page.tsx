@@ -43,18 +43,19 @@ export async function generateMetadata({
 export default function Page({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 
-
   if (!post) notFound();
 
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <div className="h-full">
+    <div className="h-full ml-40">
       <div className="mb-6">
-        <h1 className="mb-1 text-3xl font-semibold ">{post.title}</h1>
+        <h1 className="mb-1 text-3xl font-semibold transition-all duration-500">
+          {post.title}
+        </h1>
       </div>
       <div className="h-full">
-        <article className="prose dark:prose-invert prose-h1:text-2xl prose-a:break-all break-keep ">
+        <article className="transition-all duration-500 prose dark:prose-invert prose-h1:text-2xl prose-a:break-all break-keep ">
           <MDXContent components={mdxComponents} />
         </article>
       </div>

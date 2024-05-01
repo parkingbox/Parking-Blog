@@ -1,33 +1,64 @@
-import Image from "next/image";
-import Profile from "../../public/Profile.webp";
+"use client";
 
-export default function Home() {
+import { compareDesc, format, parseISO } from "date-fns";
+import { allPosts, Post } from "contentlayer/generated";
+import Link from "next/link";
+import { Metadata } from "next";
+import { useSearchParams } from "next/navigation";
+import Category from "@/src/components/Category";
+
+const metadata: Metadata = {
+  title: "Post",
+  description: "회고 및 개인공부에 대한 블로그 글목록",
+};
+
+function PostCard(post: Post) {
   return (
-    <>
-      <div className="sm:flex flex-col mx-auto max-w-xl py-8 pl-8 items-center">
-        <Image
-          src={Profile}
-          quality={100}
-          className="h-40 w-40 rounded-full object-cover"
-          alt="Profile"
-        />
-        <div className="mx-auto max-w-xl py-8">
-          <h1 className="mb-8 text-left text-2xl font-black">안녕하세요.</h1>
-          <p className="mb-4 text-left font-black">
-            프론트엔드 개발자 박승우입니다.
-          </p>
-        </div>
-      </div>
-      <div className="py-8 pl-8">
-        <p className="mb-4">
-          저는 FrontEnd를 깊이 있게 다져가기 위해 양질의 글을 쓰고자 노력합니다.
-        </p>
-        <p className="mb-4">
-          좋은 글, 다른사람에게 도움이 되고 영감을 주는 개발 글을 작성하여
-          다양한 지식을 공유하는 것을
-        </p>
-        <p className="mb-4">목표하고 있습니다.</p>
-      </div>
-    </>
+    <div>
+      {/* <div>{post.category}</div> */}
+      <h2 className="mb-1 text-xl">
+        <Link href={`post/${post._raw.flattenedPath}`}>{post.title}</Link>
+      </h2>
+      <span className="mb- text-gray-800 dark:text-gray-400">
+        <Link href={`post/${post._raw.flattenedPath}`}>{post.description}</Link>
+      </span>
+      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
+        {format(parseISO(post.date), "LLLL d, yyyy")}
+      </time>
+    </div>
   );
 }
+
+function PostPage() {
+  const posts = allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  );
+
+  const params = useSearchParams();
+  const keyParams = params.get("key");
+
+  const isAll = !keyParams || keyParams === "";
+
+  const filteredSnippetList = posts.filter((post) => {
+    if (isAll) return true;
+    return post.category === keyParams;
+  });
+
+  return (
+    <div className="ml-40 mx-auto max-w-5xl h-screen">
+      <h1 className="mb-5 text-center text-3xl font-bold">공부함</h1>
+
+      <div className="mt-8 space-y-16 transition-all duration-500">
+        {filteredSnippetList.map((item, i) => {
+          return (
+            <div key={i} className="mt-4 grid grid-cols-2 gap-4">
+              <PostCard {...item} />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export default PostPage;
