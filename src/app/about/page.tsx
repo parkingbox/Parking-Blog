@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 function About() {
   return (
-    <div>
+    <div className="mx-auto lg:ml-40">
       <>
         <h1 className="mb-6 text-3xl font-bold">About Me</h1>
         <section className="mb-12">

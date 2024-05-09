@@ -27,8 +27,7 @@ function PostPage() {
 
   return (
     <div className="mx-auto lg:ml-40 max-w-5xl h-screen">
-      <h1 className="mb-5 text-center text-3xl font-bold">공부함</h1>
-
+      <h1 className="mb-5 text-center text-3xl font-bold">게시글 목록</h1>
       <div className="mt-8 space-y-16 transition-all duration-500">
         {filteredSnippetList.map((item, i) => {
           return (
