@@ -48,7 +48,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <div className="h-full ml-40">
+    <div className="h-full mx-auto lg:ml-40">
       <div className="mb-6">
         <h1 className="mb-1 text-3xl font-semibold transition-all duration-500">
           {post.title}
