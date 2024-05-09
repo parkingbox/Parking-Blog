@@ -1,37 +1,14 @@
 "use client";
 
-import { compareDesc, format, parseISO } from "date-fns";
+import { compareDesc } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
-import Link from "next/link";
-import { Metadata } from "next";
 import { useSearchParams } from "next/navigation";
-import Category from "@/src/components/Category";
+import PostCard from "./_components/PostCard";
 
-const metadata: Metadata = {
+const metadata = {
   title: "Post",
   description: "회고 및 개인공부에 대한 블로그 글목록",
 };
-
-function PostCard(post: Post) {
-  console.log(post);
-
-  return (
-    <div>
-      <div className="px-2 mb-2 dark:border-gray-500 border-amber-300 border-2 w-fit rounded-md">
-        {post.category}
-      </div>
-      <h2 className="mb-1 text-xl">
-        <Link href={`post/${post._raw.flattenedPath}`}>{post.title}</Link>
-      </h2>
-      <span className="mb- text-gray-800 dark:text-gray-400">
-        <Link href={`post/${post._raw.flattenedPath}`}>{post.description}</Link>
-      </span>
-      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(post.date), "LLLL d, yyyy")}
-      </time>
-    </div>
-  );
-}
 
 function PostPage() {
   const posts = allPosts.sort((a, b) =>

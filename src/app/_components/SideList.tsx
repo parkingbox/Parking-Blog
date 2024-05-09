@@ -33,7 +33,7 @@ function SideList() {
   return (
     <div className="gap-5">
       <div>
-        <Link href={`?`} className="flex items-center rounded-md  ">
+        <Link href={`?`} className="rounded-md  ">
           <Category selected={isAll}>
             <div className="cursor-pointer ">ALL ({total}) </div>
           </Category>
