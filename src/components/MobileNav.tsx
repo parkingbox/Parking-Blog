@@ -5,7 +5,7 @@ import { VscAccount } from "react-icons/vsc";
 
 function MobileNav() {
   return (
-    <div className="lg:hidden h-20 w-full px-4 bg-neutral-100 flex items-center justify-between">
+    <div className="lg:hidden h-20 w-full px-4 dark:bg-custom-black bg-neutral-100 flex items-center justify-between">
       <h1 className="text-3xl font-bold">
         <Link href="/">ParkingBox</Link>
       </h1>
