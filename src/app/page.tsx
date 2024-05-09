@@ -13,9 +13,13 @@ const metadata: Metadata = {
 };
 
 function PostCard(post: Post) {
+  console.log(post);
+
   return (
     <div>
-      {/* <div>{post.category}</div> */}
+      <div className="px-2 mb-2 dark:border-gray-500 border-amber-300 border-2 w-fit rounded-md">
+        {post.category}
+      </div>
       <h2 className="mb-1 text-xl">
         <Link href={`post/${post._raw.flattenedPath}`}>{post.title}</Link>
       </h2>
@@ -45,13 +49,13 @@ function PostPage() {
   });
 
   return (
-    <div className="ml-40 mx-auto max-w-5xl h-screen">
+    <div className="mx-auto lg:ml-40 max-w-5xl h-screen">
       <h1 className="mb-5 text-center text-3xl font-bold">공부함</h1>
 
       <div className="mt-8 space-y-16 transition-all duration-500">
         {filteredSnippetList.map((item, i) => {
           return (
-            <div key={i} className="mt-4 grid grid-cols-2 gap-4">
+            <div key={i} className="mt-4 grid grid-cols-1 gap-4">
               <PostCard {...item} />
             </div>
           );
