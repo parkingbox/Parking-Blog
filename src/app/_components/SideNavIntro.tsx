@@ -4,8 +4,8 @@ import { VscAccount } from "react-icons/vsc";
 
 function SideNavIntro() {
   return (
-    <div>
-      <div className="flex flex-col justify-center items-center">
+    <div className="flex w-full justify-between ">
+      <div className="flex justify-center my-5">
         <h1 className="text-3xl font-bold">
           <Link href="/">ParkingBox</Link>
         </h1>
