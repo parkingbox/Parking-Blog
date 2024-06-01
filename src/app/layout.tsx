@@ -24,9 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="dark:bg-custom-black bg-neutral-100">
+      <body className="dark:bg-custom-black bg-neutral-100 ">
         <Providers>
-          <main className="h-full mt-28 mx-auto w-full max-w-3xl px-4">
+          <main className=" h-full mt-28 mx-auto w-full max-w-3xl px-4">
             <Header />
             {children}
             <Footer />

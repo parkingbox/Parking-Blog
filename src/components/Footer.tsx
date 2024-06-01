@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-20 ">
+    <div className="flex items-center justify-center w-full h-20 ">
       <div>
         © {new Date().getFullYear()}
         &nbsp;parkseungwoo all rights reserved.

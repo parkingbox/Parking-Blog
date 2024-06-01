@@ -27,10 +27,10 @@ function PostPage() {
   });
 
   return (
-    <div className="mx-auto max-w-5xl h-screen">
+    <div className="mx-auto max-w-5xl h-full min-h-[700px]">
       <h1 className="mb-5 text-center text-3xl font-bold">게시글 목록</h1>
       <SideList />
-      <div className="space-y-16 transition-all duration-500">
+      <div className="space-y-16 transition-all duration-500 mb-20">
         {filteredSnippetList.map((item, i) => {
           return (
             <div key={i} className="mt-4 gap-4">
