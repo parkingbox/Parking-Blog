@@ -4,6 +4,7 @@ import { compareDesc } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useSearchParams } from "next/navigation";
 import PostCard from "./_components/PostCard";
+import SideList from "./_components/SideList";
 
 const metadata = {
   title: "Post",
@@ -24,14 +25,16 @@ function PostPage() {
     if (isAll) return true;
     return post.category === keyParams;
   });
+  console.log(posts);
 
   return (
-    <div className="mx-auto lg:ml-40 max-w-5xl h-screen">
+    <div className="mx-auto max-w-5xl h-full min-h-[700px]">
       <h1 className="mb-5 text-center text-3xl font-bold">게시글 목록</h1>
-      <div className="mt-8 space-y-16 transition-all duration-500">
+      <SideList />
+      <div className="space-y-16 transition-all duration-500 mb-20">
         {filteredSnippetList.map((item, i) => {
           return (
-            <div key={i} className="mt-4 grid grid-cols-1 gap-4">
+            <div key={i} className="mt-4 gap-4">
               <PostCard {...item} />
             </div>
           );

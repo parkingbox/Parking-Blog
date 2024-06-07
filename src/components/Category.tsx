@@ -11,6 +11,7 @@ export default function Category({ className, selected, ...props }: PillProps) {
       {...props}
       className={cn(
         "rounded-lg px-2 py-3 transition-colors",
+        "dark:hover:hover-black",
         "bg-secondary hover:text-primary hover:bg-tertiary mb-10",
         selected
           ? "text-primary font-semibold ring-2 ring-gray-400"

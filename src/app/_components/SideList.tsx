@@ -31,15 +31,15 @@ function SideList() {
   const total = sumObjectValues(categoryCounts);
 
   return (
-    <div className="gap-5">
+    <div className="gap-5 flex">
       <div>
-        <Link href={`?`} className="rounded-md  ">
+        <Link href={`?`} className="rounded-md">
           <Category selected={isAll}>
-            <div className="cursor-pointer ">ALL ({total}) </div>
+            <div className="cursor-pointer">ALL ({total})</div>
           </Category>
         </Link>
       </div>
-      <div className="gap-5">
+      <div className="gap-5 flex">
         {posts
           .filter((item, index, self) => {
             return (
