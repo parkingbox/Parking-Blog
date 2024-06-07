@@ -25,6 +25,7 @@ function PostPage() {
     if (isAll) return true;
     return post.category === keyParams;
   });
+  console.log(posts);
 
   return (
     <div className="mx-auto max-w-5xl h-full min-h-[700px]">
