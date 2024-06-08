@@ -7,7 +7,7 @@ import { LuCalendarDays } from "react-icons/lu";
 
 type TDate = Date | string;
 interface ExtendedPost extends Post {
-  thumbnail: string;
+  thumbnail: string | any;
   description: string;
   category: string;
   title: string;
