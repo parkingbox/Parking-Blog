@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import { Suspense } from "react";
 
 import { compareDesc } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
@@ -31,39 +32,41 @@ function SideList() {
   const total = sumObjectValues(categoryCounts);
 
   return (
-    <div className="gap-5 flex">
-      <div>
-        <Link href={`?`} className="rounded-md">
-          <Category selected={isAll}>
-            <div className="cursor-pointer">ALL ({total})</div>
-          </Category>
-        </Link>
-      </div>
+    <Suspense>
       <div className="gap-5 flex">
-        {posts
-          .filter((item, index, self) => {
-            return (
-              self.findIndex((t) => t.category === item.category) === index
-            );
-          })
-          .map((post, i) => (
-            <Link
-              key={i}
-              href={`/?key=${post.category}`}
-              className="rounded-md"
-            >
-              <Category
-                className="cursor-pointer whitespace-nowrap"
-                selected={post.category === keyParams}
+        <div>
+          <Link href={`?`} className="rounded-md">
+            <Category selected={isAll}>
+              <div className="cursor-pointer">ALL ({total})</div>
+            </Category>
+          </Link>
+        </div>
+        <div className="gap-5 flex">
+          {posts
+            .filter((item, index, self) => {
+              return (
+                self.findIndex((t) => t.category === item.category) === index
+              );
+            })
+            .map((post, i) => (
+              <Link
+                key={i}
+                href={`?key=${post.category}`}
+                className="rounded-md"
               >
-                <div className="cursor-pointer">
-                  {post.category} ({categoryCounts[post.category!]})
-                </div>
-              </Category>
-            </Link>
-          ))}
+                <Category
+                  className="cursor-pointer whitespace-nowrap"
+                  selected={post.category === keyParams}
+                >
+                  <div className="cursor-pointer">
+                    {post.category} ({categoryCounts[post.category!]})
+                  </div>
+                </Category>
+              </Link>
+            ))}
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }
 
