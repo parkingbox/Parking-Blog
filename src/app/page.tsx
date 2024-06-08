@@ -5,6 +5,8 @@ import { allPosts, Post } from "contentlayer/generated";
 import { useSearchParams } from "next/navigation";
 import PostCard from "./_components/PostCard";
 import SideList from "./_components/SideList";
+import { Suspense } from "react";
+import GitCalendar from "./_components/GithubCalendar";
 
 const metadata = {
   title: "Post",
@@ -25,22 +27,24 @@ function PostPage() {
     if (isAll) return true;
     return post.category === keyParams;
   });
-  console.log(posts);
 
   return (
-    <div className="mx-auto max-w-5xl h-full min-h-[700px]">
-      <h1 className="mb-5 text-center text-3xl font-bold">게시글 목록</h1>
-      <SideList />
-      <div className="space-y-16 transition-all duration-500 mb-20">
-        {filteredSnippetList.map((item, i) => {
-          return (
-            <div key={i} className="mt-4 gap-4">
-              <PostCard {...item} />
-            </div>
-          );
-        })}
+    <Suspense>
+      <div className="mx-auto max-w-5xl h-full min-h-[700px]">
+        <GitCalendar />
+        <h1 className="mb-5 text-center text-3xl font-bold">게시글 목록</h1>
+        <SideList />
+        <div className="space-y-16 transition-all duration-500 mb-20">
+          {filteredSnippetList.map((item, i) => {
+            return (
+              <div key={i} className="mt-4 gap-4">
+                <PostCard {...item} />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }
 
